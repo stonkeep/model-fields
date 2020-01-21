@@ -1,0 +1,33 @@
+{
+    "name": "stonkeep/model-fields",
+    "description": "Returns the fields of the model or returns the data of the array passed by parameter referring to the fields of the model",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mateus Galasso",
+            "email": "mateusgalasso@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "4.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "stonkeep\\ModelFields\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "stonkeep\\ModelFields\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers":[
+                "stonkeep\\ModelFields\\ModelFieldsBaseServiceProvider"
+            ]
+        }
+    }
+}
