@@ -28,7 +28,9 @@ class initialTest extends TestCase
             ]
         );
         $data = User::find(1)->toArray();
+        //Tests fields with data
         $fields = User::fields($data);
+        //Assert data
         $this->assertSame($fields,
             [
                 "email" => "hello@orchestraplatform.com",
@@ -36,8 +38,11 @@ class initialTest extends TestCase
                 "field3" => "field3",
             ]
         );
+        //Asserts
         $this->assertInstanceOf(User::class, User::create(User::fields($data)));
         $this->assertTrue(User::find(1)->update(User::fields($data)));
+        //check if it is getting the table name correctly
+        $this->assertSame('users', User::table());
     }
 
 }

@@ -18,7 +18,7 @@ trait ModelFieldsTrait
     public static function fields($data = null)
     {
         //takes columns from class tables
-        $fields = Schema::getColumnListing((new self())->getTable());
+        $fields = Schema::getColumnListing(self::table());
         //alternate fields with keys
         $fields = array_flip($fields);;
         //checks if hiddenFields field exists in class and remove unwanted fields
@@ -54,5 +54,14 @@ trait ModelFieldsTrait
         }
         //if data was passed in the parameter then returns the data consistent with the table. If not, returns only the fields in the table
         return $data ?: $fields;
+    }
+
+    /**
+     * Return the name of table
+     * @return mixed
+     */
+    public static function table()
+    {
+        return ((new self)->getTable());
     }
 }
