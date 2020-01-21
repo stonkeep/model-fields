@@ -12,12 +12,12 @@ add the trait to the laravel model
 ```php
 class User extends Model
 {
-\\ ...
+// ...
     protected $guarded = ['id'];
     protected $hidden = ['password'];
     private $hiddenFields = ['field2'];
     use ModelFieldsTrait;
-\\ ...
+// ...
 }
 ```
 the private $hiddenFields property will be used for custom fields that you don't want if returned
