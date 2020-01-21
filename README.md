@@ -9,15 +9,17 @@ this is a Laravel package that returns the fields of the model or returns the da
 ## Usage
 add the trait to the laravel model
 
-    class User extends Model
-    {
-    \\ ...
-        protected $guarded = ['id'];
-        protected $hidden = ['password'];
-        private $hiddenFields = ['field2'];
-        use ModelFieldsTrait;
-    \\ ...
-    }
+```php
+class User extends Model
+{
+\\ ...
+    protected $guarded = ['id'];
+    protected $hidden = ['password'];
+    private $hiddenFields = ['field2'];
+    use ModelFieldsTrait;
+\\ ...
+}
+```
 the private $hiddenFields property will be used for custom fields that you don't want if returned
 
 call the `fields()` function inside the trait to return the model fields that will be used to update or create
