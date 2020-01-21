@@ -43,7 +43,7 @@ trait ModelFieldsTrait
         $fields = array_keys($fields);
         if (!is_null($data)) {
             if (is_array($data)) {
-                if (isList($data)) {
+                if (!ctype_digit(implode('', array_keys($data)))) {
                     $data = collect($data)->only($fields)->toArray();
                 } else {
                     $data = array_map(function ($item) use ($fields) {

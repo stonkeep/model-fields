@@ -14,11 +14,11 @@ class CreateTestbenchUsersTable extends Migration
     {
         Schema::create('users', function ($table) {
             $table->increments('id');
-            $table->string('email');
-            $table->string('password');
-            $table->string('field1');
-            $table->string('field2');
-            $table->string('field3');
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
+            $table->string('field1')->nullable();
+            $table->string('field2')->nullable();
+            $table->string('field3')->nullable();
             $table->timestamps();
         });
 

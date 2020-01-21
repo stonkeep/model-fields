@@ -27,6 +27,17 @@ class initialTest extends TestCase
                 //don't show dates
             ]
         );
+        $data = User::find(1)->toArray();
+        $fields = User::fields($data);
+        $this->assertSame($fields,
+            [
+                "email" => "hello@orchestraplatform.com",
+                "field1" => "field1",
+                "field3" => "field3",
+            ]
+        );
+        $this->assertInstanceOf(User::class, User::create(User::fields($data)));
+        $this->assertTrue(User::find(1)->update(User::fields($data)));
     }
 
 }
