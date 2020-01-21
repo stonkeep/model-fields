@@ -18,10 +18,10 @@ add the trait to the laravel model
         use ModelFieldsTrait;
     \\ ...
     }
-the private $ hiddenFields property will be used for custom fields that you don't want if returned
+the private $hiddenFields property will be used for custom fields that you don't want if returned
 
 call the `fields()` function inside the trait to return the model fields that will be used to update or create
-```
+```php
 //Get User fields
 $fields = User::fields();
 //Return 
@@ -38,7 +38,7 @@ $fields = User::fields();
 The return will **not** show **$guarded, $dates, $hidden and $hiddenFields**
 
 If you pass an array of values the method will return the same fields filled
-```
+```php
 $data = User::find(1)->toArray();
 $fields = User::fields($data);
 //Return 
@@ -50,8 +50,8 @@ $fields = User::fields($data);
 ```
 Then you can pass on `update()` and `create()` methods
 
-```
+```php
 User::create(User::fields($data));
-or 
-User::find(1)->update(User::fields($data))
+or
+User::find(1)->update(User::fields($data));
 ```
